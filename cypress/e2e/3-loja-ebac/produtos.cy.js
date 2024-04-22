@@ -4,17 +4,41 @@ describe('Funcionalidade: produtos', () => {
 
     before(() => {
         cy.visit('http://lojaebac.ebaconline.art.br/produtos/')
-    });
-
+    });    
         it('Deve selecionar um produto da lista', () => {
-        cy.get('.products > .row')
-            //.first()
-            //.last()
-            //.eq(4)
-            .contains('Arcadio Gym Short')
-            .click()
+            cy.get(' .product-block ')
+            .first()
+            .click()    
+        cy.wait(4000) 
+        cy.screenshot()   
 
-            cy.get('#tab-title-description > a').should('contain', 'Descrição')    
-        
     });
+
+    it('Deve selecionar o ultimo produto', () => {
+        cy.visit('http://lojaebac.ebaconline.art.br/produtos/')
+        cy.get(' .product-block ')
+            .contains('Arcadio Gym Short')     
+            .click()
+        cy.wait(4000)
+        cy.screenshot() 
+
+}); 
+    it('Deve selecionar o ultimo produto', () => {
+    cy.visit('http://lojaebac.ebaconline.art.br/produtos/')
+    cy.get(' .product-block ')
+         .last()    
+        .click()
+        cy.wait(4000)
+        cy.screenshot() 
+}); 
+    it('Deve selecionar o ultimo produto', () => {
+    cy.visit('http://lojaebac.ebaconline.art.br/produtos/')
+    cy.get(' .product-block ')
+        .eq(7)   
+        .click()
+        cy.wait(4000)
+        cy.screenshot() 
+
+}); 
+
 });

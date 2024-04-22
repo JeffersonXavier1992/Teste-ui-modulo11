@@ -14,8 +14,10 @@ import { faker } from '@faker-js/faker';
         cy.get('.woocommerce-MyAccount-navigation-link--edit-account > a').click()
         cy.get('#account_first_name').type(faker.person.firstName())
         cy.get('#account_last_name').type(faker.person.lastName())
+        cy.wait(3000)
         cy.get('.woocommerce-Button').click();
         cy.get('.woocommerce-message').should('contain', 'Detalhes da conta modificados com sucesso.')
+
 
     });
 
@@ -32,6 +34,7 @@ import { faker } from '@faker-js/faker';
         cy.get('.woocommerce-MyAccount-navigation-link--edit-account > a').click()
         cy.get('#account_first_name').type(nome)
         cy.get('#account_last_name').type(sobrenome)
+        cy.wait(3000)
         cy.get('.woocommerce-Button').click();
         cy.get('.woocommerce-message').should('contain', 'Detalhes da conta modificados com sucesso.')
     
